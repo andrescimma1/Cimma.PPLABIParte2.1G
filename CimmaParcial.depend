@@ -1,0 +1,41 @@
+# depslib dependency file v1.0
+1590183532 source:c:\users\user\desktop\cimmaparcialterminado\cimmapplab1\cimmaparcial\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"notebooks.h"
+	"marcas.h"
+	"tipos.h"
+	"servicios.h"
+	"trabajos.h"
+
+1590183524 c:\users\user\desktop\cimmaparcialterminado\cimmapplab1\cimmaparcial\notebooks.h
+	"marcas.h"
+	"tipos.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1590182706 source:c:\users\user\desktop\cimmaparcialterminado\cimmapplab1\cimmaparcial\marcas.c
+	"marcas.h"
+
+1590182545 c:\users\user\desktop\cimmaparcialterminado\cimmapplab1\cimmaparcial\marcas.h
+
+1590182805 source:c:\users\user\desktop\cimmaparcialterminado\cimmapplab1\cimmaparcial\servicios.c
+	"servicios.h"
+
+1590182778 c:\users\user\desktop\cimmaparcialterminado\cimmapplab1\cimmaparcial\servicios.h
+
+1590182720 source:c:\users\user\desktop\cimmaparcialterminado\cimmapplab1\cimmaparcial\tipos.c
+	"tipos.h"
+
+1590182626 c:\users\user\desktop\cimmaparcialterminado\cimmapplab1\cimmaparcial\tipos.h
+
+1590182878 source:c:\users\user\desktop\cimmaparcialterminado\cimmapplab1\cimmaparcial\trabajos.c
+	"trabajos.h"
+
+1590182842 c:\users\user\desktop\cimmaparcialterminado\cimmapplab1\cimmaparcial\trabajos.h
+
+1590183471 source:c:\users\user\desktop\cimmaparcialterminado\cimmapplab1\cimmaparcial\notebooks.c
+	"notebooks.h"
+
