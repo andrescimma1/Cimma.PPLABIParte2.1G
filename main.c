@@ -44,8 +44,14 @@ int main()
                                        {5, "WEDSA3", 1000, 5000, 43000, 1, {5, "Daniela", 'f'}},
                                        {6, "ESQEs4", 1003, 5003, 74000, 1, {6, "Pablo", 'm'}}
                                        };
+    eTrabajo arrayTrabajos[TAMTRA] = {
+                                     {0, 1, 20000, {22, 5, 2020}, 1},
+                                     {1, 4, 20002, {19, 5, 2020}, 1},
+                                     {2, 5, 20001, {14, 5, 2020}, 1},
+                                     {3, 1, 20001, {17, 5, 2020}, 1},
+                                     {4, 1, 20003, {8, 5, 2020}, 1}
+                                     };
     inicializarNotebooks(arrayNotebooks, TAMNOT);
-    eTrabajo arrayTrabajos[TAMTRA];
     inicializarTrabajos(arrayTrabajos, TAMTRA);
 
     do
@@ -88,11 +94,16 @@ int main()
             case '3': informarLaOLasNotebooksMasBaratas(arrayNotebooks, TAMNOT, arrayMarcas, TAMMAR, arrayTipos, TAMTIP);
                     system("pause");
                     break;
-            //case '4':
+            case '4': separarPorMarca(arrayNotebooks, TAMNOT, arrayMarcas, TAMMAR, arrayTipos, TAMTIP);
+                    system("pause");
+                    break;
             case '5': mostrarNotebooksPorTipoYMarca(arrayNotebooks, TAMNOT, arrayMarcas, TAMMAR, arrayTipos, TAMTIP);
                     system("pause");
                     break;
             case '6': mostrarLaOLasMarcasMasElegidas(arrayNotebooks, TAMNOT, arrayMarcas, TAMMAR);
+                    system("pause");
+                    break;
+            case '7': trabajosAUnaNote(arrayTrabajos, TAMTRA, arrayNotebooks, TAMNOT, arrayMarcas, TAMMAR, arrayTipos, TAMTIP, arrayServicios, TAMSER);
                     system("pause");
                     break;
 

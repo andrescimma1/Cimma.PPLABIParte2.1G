@@ -152,3 +152,37 @@ void listarTrabajos(eTrabajo arrayTrabajos[], int lentra, eNotebook arrayNoteboo
         printf("No hay trabajos que mostrar\n");
     }
 }
+
+
+
+
+
+/** \brief Recorro los trabajos y busco que sea igual a la id de la notebook insertada.
+ *
+ * \param int idNote;
+ * \param int i;
+ * \return No devuelve nada.
+ *
+ */
+void trabajosAUnaNote(eTrabajo arrayTrabajos[], int lentra, eNotebook arrayNotebooks[], int len, eMarca arrayMarcas[], int lenmar, eTipo arrayTipos[], int lentip, eServicio arrayServicios[], int lenser)
+{
+    int idNote;
+    int i;
+
+    listarNotebooks(arrayNotebooks, len, arrayMarcas, lenmar, arrayTipos, lentip);
+
+    printf("Ingrese la ID de una notebook: ");
+    scanf("%d", &idNote);
+
+    for(i=0; i<lentra; i++)
+    {
+        if(arrayTrabajos[i].ocupado == 1)
+        {
+            if(idNote == arrayTrabajos[i].idNotebook)
+            {
+                listarTrabajo(arrayTrabajos[i], arrayNotebooks, len, arrayMarcas, lenmar, arrayTipos, lentip, arrayServicios, lenser);
+            }
+        }
+    }
+
+}

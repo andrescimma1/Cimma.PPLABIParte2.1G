@@ -312,10 +312,10 @@ void altaNotebook(eNotebook arrayNotebooks[], int tamnot, eMarca arrayMarcas[], 
         printf("Ingrese el precio de la notebook: ");
         scanf("%d", &arrayNotebooks[indice].precio);
 
-        printf("Ingrese ID del cliente: ");
-        scanf("%d", &arrayNotebooks[indice].id);
+        arrayNotebooks[indice].cliente.id = arrayNotebooks[indice].id;
 
         printf("Ingrese el nombre del cliente: ");
+        fflush(stdin);
         gets(arrayNotebooks[indice].cliente.nombre);
 
         printf("Ingrese el sexo del cliente: ");
@@ -355,6 +355,9 @@ int menu()
     printf("4. Mostrar un listado de las notebooks separadas por marca.\n");
     printf("5. Elegir un tipo y una marca y contar cuantas notebooks hay de ese tipo y esa marca.\n");
     printf("6. Mostrar la o las marcas mas elegidas por los clientes.\n\n");
+    printf("7. Pedir una notebook y mostrar todos los trabajos que se le hicieron a la misma.\n");
+
+    printf("\n");
 
 
 
@@ -607,21 +610,68 @@ void informarLaOLasNotebooksMasBaratas(eNotebook arrayNotebooks[], int len, eMar
 }
 
 
-/*void separarPorMarca(eNotebook arrayNotebooks[], int len, eMarca arrayMarcas[], int lenmar, eTipo arrayTipos[], int lentip)
+
+/** \brief Recorre las notebooks y las separa por marca
+ *
+ * \param int i;
+ * \param
+ * \return No devuelve nada.
+ *
+ */
+void separarPorMarca(eNotebook arrayNotebooks[], int len, eMarca arrayMarcas[], int lenmar, eTipo arrayTipos[], int lentip)
 {
-    int i, j;
+    int i;
+
+    printf("*** NOTEBOOKS SEPARADAS POR MARCA ***\n\n");
+    for(i=0; i<len; i++)
+    {
+        if(arrayNotebooks[i].ocupado == 1)
+        {
+            if(arrayNotebooks[i].idMarca == 1000)
+            {
+                listarNotebook(arrayNotebooks[i], arrayMarcas, lenmar, arrayTipos, lentip);
+            }
+        }
+    }
+
+    printf("\n");
 
     for(i=0; i<len; i++)
     {
         if(arrayNotebooks[i].ocupado == 1)
         {
-            for(j=0; j<lenmar; j++)
+            if(arrayNotebooks[i].idMarca == 1001)
             {
-
+                listarNotebook(arrayNotebooks[i], arrayMarcas, lenmar, arrayTipos, lentip);
             }
         }
     }
-}*/
+    printf("\n");
+
+
+    for(i=0; i<len; i++)
+    {
+        if(arrayNotebooks[i].ocupado == 1)
+        {
+            if(arrayNotebooks[i].idMarca == 1002)
+            {
+                listarNotebook(arrayNotebooks[i], arrayMarcas, lenmar, arrayTipos, lentip);
+            }
+        }
+    }
+    printf("\n");
+
+    for(i=0; i<len; i++)
+    {
+        if(arrayNotebooks[i].ocupado == 1)
+        {
+            if(arrayNotebooks[i].idMarca == 1003)
+            {
+                listarNotebook(arrayNotebooks[i], arrayMarcas, lenmar, arrayTipos, lentip);
+            }
+        }
+    }
+}
 
 
 

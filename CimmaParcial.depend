@@ -39,7 +39,7 @@
 1590183471 source:c:\users\user\desktop\cimmaparcialterminado\cimmapplab1\cimmaparcial\notebooks.c
 	"notebooks.h"
 
-1590191392 source:c:\users\user\desktop\cimmapplab1parte2\cimma.pplabiparte2.1g\main.c
+1590194859 source:c:\users\user\desktop\cimmapplab1parte2\cimma.pplabiparte2.1g\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -49,7 +49,7 @@
 	"servicios.h"
 	"trabajos.h"
 
-1590191329 c:\users\user\desktop\cimmapplab1parte2\cimma.pplabiparte2.1g\notebooks.h
+1590193078 c:\users\user\desktop\cimmapplab1parte2\cimma.pplabiparte2.1g\notebooks.h
 	"marcas.h"
 	"tipos.h"
 	<stdio.h>
@@ -62,14 +62,14 @@
 
 1590182778 c:\users\user\desktop\cimmapplab1parte2\cimma.pplabiparte2.1g\servicios.h
 
-1590184233 c:\users\user\desktop\cimmapplab1parte2\cimma.pplabiparte2.1g\trabajos.h
+1590194689 c:\users\user\desktop\cimmapplab1parte2\cimma.pplabiparte2.1g\trabajos.h
 	"notebooks.h"
 	"servicios.h"
 
 1590182706 source:c:\users\user\desktop\cimmapplab1parte2\cimma.pplabiparte2.1g\marcas.c
 	"marcas.h"
 
-1590191779 source:c:\users\user\desktop\cimmapplab1parte2\cimma.pplabiparte2.1g\notebooks.c
+1590194891 source:c:\users\user\desktop\cimmapplab1parte2\cimma.pplabiparte2.1g\notebooks.c
 	"notebooks.h"
 
 1590182805 source:c:\users\user\desktop\cimmapplab1parte2\cimma.pplabiparte2.1g\servicios.c
@@ -78,6 +78,6 @@
 1590182720 source:c:\users\user\desktop\cimmapplab1parte2\cimma.pplabiparte2.1g\tipos.c
 	"tipos.h"
 
-1590184168 source:c:\users\user\desktop\cimmapplab1parte2\cimma.pplabiparte2.1g\trabajos.c
+1590194652 source:c:\users\user\desktop\cimmapplab1parte2\cimma.pplabiparte2.1g\trabajos.c
 	"trabajos.h"
 
