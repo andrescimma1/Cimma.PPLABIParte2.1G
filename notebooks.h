@@ -10,11 +10,19 @@
 typedef struct
 {
     int id;
+    char nombre[20];
+    char sexo;
+}eCliente;
+
+typedef struct
+{
+    int id;
     char modelo[20];
     int idMarca;
     int idTipo;
     int precio;
     int ocupado;
+    eCliente cliente;
 }eNotebook;
 
 void inicializarNotebooks(eNotebook arrayNotebooks[], int tamnot);
@@ -27,6 +35,11 @@ int menu();
 void modificarNotebook(eNotebook arrayNotebooks[], int len, eMarca arrayMarcas[], int lenmar, eTipo arrayTipos[], int lentip);
 int submenu();
 void bajaNotebook(eNotebook arrayNotebooks[], int len, eMarca arrayMarcas[], int lenmar, eTipo arrayTipos[], int lentip);
+void mostrarNotebooksPorTipoSeleccionado(eNotebook arrayNotebooks[], int len, eMarca arrayMarcas[], int lenmar, eTipo arrayTipos[], int lentip);
+void mostrarNotebooksPorMarcaSeleccionada(eNotebook arrayNotebooks[], int len, eMarca arrayMarcas[], int lenmar, eTipo arrayTipos[], int lentip);
+void informarLaOLasNotebooksMasBaratas(eNotebook arrayNotebooks[], int len, eMarca arrayMarcas[], int lenmar, eTipo arrayTipos[], int lentip);
+void mostrarNotebooksPorTipoYMarca(eNotebook arrayNotebooks[], int len, eMarca arrayMarcas[], int lenmar, eTipo arrayTipos[], int lentip);
+void mostrarLaOLasMarcasMasElegidas(eNotebook arrayNotebooks[], int len, eMarca arrayMarcas[], int lenmar);
 
 
 
