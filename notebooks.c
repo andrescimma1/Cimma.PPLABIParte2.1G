@@ -48,11 +48,12 @@ int buscarLibre(eNotebook arrayNotebooks[], int tamnot)
 }
 
 
-void listarNotebook(eNotebook pNotebook, eMarca arrayMarcas[], int lenmar, eTipo arrayTipos[], int lentip)
+void listarNotebook(eNotebook pNotebook, eMarca arrayMarcas[], int lenmar, eTipo arrayTipos[], int lentip, eCliente arrayClientes[], int tamcli)
 {
     int i;
     char marcaEncontrada[20];
     char tipoEncontrado[20];
+    char nombreEncontrado[20];
 
     for(i=0; i<lenmar; i++)
     {
@@ -70,7 +71,15 @@ void listarNotebook(eNotebook pNotebook, eMarca arrayMarcas[], int lenmar, eTipo
         }
     }
 
-    printf("%d     %7s    %7s    %7s   %d    %d    %10s    %c\n", pNotebook.id, pNotebook.modelo, marcaEncontrada, tipoEncontrado, pNotebook.precio, pNotebook.cliente.id, pNotebook.cliente.nombre, pNotebook.cliente.sexo);
+    for(i=0; i<tamcli; i++)
+    {
+        if(pNotebook.idCliente == arrayClientes[i].id && pNotebook.ocupado == 1)
+        {
+            strcpy(nombreEncontrado, arrayClientes[i].nombre);
+        }
+    }
+
+    printf("%d     %7s    %7s    %7s   %d    %s\n", pNotebook.id, pNotebook.modelo, marcaEncontrada, tipoEncontrado, pNotebook.precio, nombreEncontrado);
 }
 
 
@@ -86,8 +95,6 @@ void ordenarPorMarcaYprecio(eNotebook arrayNotebooks[], int len, eMarca arrayMar
     int auxIDTipo;
     int auxPrecio;
     int auxIDcliente;
-    char auxNombre[20];
-    char auxSexo;
     int indice = -1;
 
     for(i=0; i<len; i++)
@@ -123,15 +130,9 @@ void ordenarPorMarcaYprecio(eNotebook arrayNotebooks[], int len, eMarca arrayMar
                         auxPrecio = arrayNotebooks[i].precio;
                         arrayNotebooks[i].precio = arrayNotebooks[k].precio;
                         arrayNotebooks[k].precio = auxPrecio;
-                        auxIDcliente = arrayNotebooks[i].cliente.id;
-                        arrayNotebooks[i].cliente.id = arrayNotebooks[k].cliente.id;
-                        arrayNotebooks[k].cliente.id = auxIDcliente;
-                        strcpy(auxNombre, arrayNotebooks[i].cliente.nombre);
-                        strcpy(arrayNotebooks[i].cliente.nombre, arrayNotebooks[k].cliente.nombre);
-                        strcpy(arrayNotebooks[k].cliente.nombre, auxNombre);
-                        auxSexo = arrayNotebooks[i].cliente.sexo;
-                        arrayNotebooks[i].cliente.sexo = arrayNotebooks[k].cliente.sexo;
-                        arrayNotebooks[k].cliente.sexo = auxSexo;
+                        auxIDcliente = arrayNotebooks[i].idCliente;
+                        arrayNotebooks[i].idCliente = arrayNotebooks[k].idCliente;
+                        arrayNotebooks[k].idCliente = auxIDcliente;
 
                     }
                     else if(strcmp(marca1Encontrada, marca2Encontrada) < 1)
@@ -151,15 +152,9 @@ void ordenarPorMarcaYprecio(eNotebook arrayNotebooks[], int len, eMarca arrayMar
                         auxPrecio = arrayNotebooks[k].precio;
                         arrayNotebooks[k].precio = arrayNotebooks[i].precio;
                         arrayNotebooks[i].precio = auxPrecio;
-                        auxIDcliente = arrayNotebooks[k].cliente.id;
-                        arrayNotebooks[k].cliente.id = arrayNotebooks[i].cliente.id;
-                        arrayNotebooks[i].cliente.id = auxIDcliente;
-                        strcpy(auxNombre, arrayNotebooks[k].cliente.nombre);
-                        strcpy(arrayNotebooks[k].cliente.nombre, arrayNotebooks[i].cliente.nombre);
-                        strcpy(arrayNotebooks[i].cliente.nombre, auxNombre);
-                        auxSexo = arrayNotebooks[k].cliente.sexo;
-                        arrayNotebooks[k].cliente.sexo = arrayNotebooks[i].cliente.sexo;
-                        arrayNotebooks[i].cliente.sexo = auxSexo;
+                        auxIDcliente = arrayNotebooks[k].idCliente;
+                        arrayNotebooks[k].idCliente = arrayNotebooks[i].idCliente;
+                        arrayNotebooks[i].idCliente = auxIDcliente;
                     }
                     else if(strcmp(marca1Encontrada, marca2Encontrada) == 0)
                     {
@@ -180,15 +175,9 @@ void ordenarPorMarcaYprecio(eNotebook arrayNotebooks[], int len, eMarca arrayMar
                             auxPrecio = arrayNotebooks[i].precio;
                             arrayNotebooks[i].precio = arrayNotebooks[k].precio;
                             arrayNotebooks[k].precio = auxPrecio;
-                            auxIDcliente = arrayNotebooks[i].cliente.id;
-                            arrayNotebooks[i].cliente.id = arrayNotebooks[k].cliente.id;
-                            arrayNotebooks[k].cliente.id = auxIDcliente;
-                            strcpy(auxNombre, arrayNotebooks[i].cliente.nombre);
-                            strcpy(arrayNotebooks[i].cliente.nombre, arrayNotebooks[k].cliente.nombre);
-                            strcpy(arrayNotebooks[k].cliente.nombre, auxNombre);
-                            auxSexo = arrayNotebooks[i].cliente.sexo;
-                            arrayNotebooks[i].cliente.sexo = arrayNotebooks[k].cliente.sexo;
-                            arrayNotebooks[k].cliente.sexo = auxSexo;
+                            auxIDcliente = arrayNotebooks[i].idCliente;
+                            arrayNotebooks[i].idCliente = arrayNotebooks[k].idCliente;
+                            arrayNotebooks[k].idCliente = auxIDcliente;
                         }
                         else if(arrayNotebooks[i].precio < arrayNotebooks[k].precio)
                         {
@@ -207,15 +196,9 @@ void ordenarPorMarcaYprecio(eNotebook arrayNotebooks[], int len, eMarca arrayMar
                             auxPrecio = arrayNotebooks[k].precio;
                             arrayNotebooks[k].precio = arrayNotebooks[i].precio;
                             arrayNotebooks[i].precio = auxPrecio;
-                            auxIDcliente = arrayNotebooks[k].cliente.id;
-                            arrayNotebooks[k].cliente.id = arrayNotebooks[i].cliente.id;
-                            arrayNotebooks[i].cliente.id = auxIDcliente;
-                            strcpy(auxNombre, arrayNotebooks[k].cliente.nombre);
-                            strcpy(arrayNotebooks[k].cliente.nombre, arrayNotebooks[i].cliente.nombre);
-                            strcpy(arrayNotebooks[i].cliente.nombre, auxNombre);
-                            auxSexo = arrayNotebooks[k].cliente.sexo;
-                            arrayNotebooks[k].cliente.sexo = arrayNotebooks[i].cliente.sexo;
-                            arrayNotebooks[i].cliente.sexo = auxSexo;
+                            auxIDcliente = arrayNotebooks[k].idCliente;
+                            arrayNotebooks[k].idCliente = arrayNotebooks[i].idCliente;
+                            arrayNotebooks[i].idCliente = auxIDcliente;
                         }
                     }
                 }
@@ -237,7 +220,7 @@ void ordenarPorMarcaYprecio(eNotebook arrayNotebooks[], int len, eMarca arrayMar
  * \return Devuelve -1 si no se encontraron notebooks, o devuelve 0 si se encontraron.
  *
  */
-int listarNotebooks(eNotebook arrayNotebooks[], int len, eMarca arrayMarcas[], int lenmar, eTipo arrayTipos[], int lentip)
+int listarNotebooks(eNotebook arrayNotebooks[], int len, eMarca arrayMarcas[], int lenmar, eTipo arrayTipos[], int lentip, eCliente arrayClientes[], int tamcli)
 {
     int i;
     int indice = -1;
@@ -248,13 +231,13 @@ int listarNotebooks(eNotebook arrayNotebooks[], int len, eMarca arrayMarcas[], i
 
     printf("Listado de notebooks\n");
     printf("_______________________________________________________________________________\n");
-    printf("ID     MODELO     MARCA     TIPO     PRECIO      IDCLIENTE     NOMBRE      SEXO\n");
+    printf("ID     MODELO     MARCA     TIPO     PRECIO      NOMBRE\n");
 
     for(i=0; i<len; i++)
     {
         if(arrayNotebooks[i].ocupado == 1)
         {
-            listarNotebook(arrayNotebooks[i], arrayMarcas, lenmar, arrayTipos, lentip);
+            listarNotebook(arrayNotebooks[i], arrayMarcas, lenmar, arrayTipos, lentip, arrayClientes, tamcli);
             indice = 0;
         }
     }
@@ -270,7 +253,32 @@ int listarNotebooks(eNotebook arrayNotebooks[], int len, eMarca arrayMarcas[], i
 }
 
 
+int generarId(eNotebook arrayNotebooks[], int tamnot)
+{
+    int i;
+    int id;
+    int maximo;
+    int flag = 0;
 
+    for(i=0; i<tamnot; i++)
+    {
+        if(flag == 0 && arrayNotebooks[i].ocupado == 1)
+        {
+            maximo = arrayNotebooks[i].id;
+        }
+        else
+        {
+            if(maximo < arrayNotebooks[i].id && arrayNotebooks[i].ocupado == 1)
+            {
+                maximo = arrayNotebooks[i].id;
+            }
+        }
+    }
+
+    id = maximo + 1;
+
+    return id;
+}
 
 
 /** \brief Da de alta una notebook, pidiendole al usuario: modelo, marca, tipo y precio
@@ -280,9 +288,12 @@ int listarNotebooks(eNotebook arrayNotebooks[], int len, eMarca arrayMarcas[], i
  * \return No devuelve nada.
  *
  */
-void altaNotebook(eNotebook arrayNotebooks[], int tamnot, eMarca arrayMarcas[], int tammar, eTipo arrayTipos[], int tamtip)
+void altaNotebook(eNotebook arrayNotebooks[], int tamnot, eMarca arrayMarcas[], int tammar, eTipo arrayTipos[], int tamtip, eCliente arrayClientes[], int tamcli)
 {
     int indice;
+    int id;
+    int idCliente;
+    int indiceCliente;
 
     system("cls");
 
@@ -294,8 +305,11 @@ void altaNotebook(eNotebook arrayNotebooks[], int tamnot, eMarca arrayMarcas[], 
     }
     else
     {
-        printf("Ingrese ID de la notebook: ");
-        scanf("%d", &arrayNotebooks[indice].id);
+        id = generarId(arrayNotebooks, tamnot);
+
+        printf("Generando id..\n");
+        printf("Id generada: %d\n\n", id);
+        arrayNotebooks[indice].id = id;
 
         printf("Ingrese modelo: ");
         fflush(stdin);
@@ -312,16 +326,35 @@ void altaNotebook(eNotebook arrayNotebooks[], int tamnot, eMarca arrayMarcas[], 
         printf("Ingrese el precio de la notebook: ");
         scanf("%d", &arrayNotebooks[indice].precio);
 
-        arrayNotebooks[indice].cliente.id = arrayNotebooks[indice].id;
+        mostrarClientes(arrayClientes, tamcli);
 
-        printf("Ingrese el nombre del cliente: ");
-        fflush(stdin);
-        gets(arrayNotebooks[indice].cliente.nombre);
+        idCliente = generarIdCliente(arrayClientes, tamcli);
 
-        printf("Ingrese el sexo del cliente: ");
-        scanf("%c", &arrayNotebooks[indice].cliente.sexo);
+        printf("Generando id..\n");
+        printf("Id generada: %d\n\n", idCliente);
 
-        arrayNotebooks[indice].ocupado = 1;
+        arrayNotebooks[indice].idCliente = idCliente;
+
+        indiceCliente = buscarClienteLibre(arrayClientes, tamcli);
+
+        if(indiceCliente == -1)
+        {
+            printf("No hay espacio libre\n\n");
+        }
+        else
+        {
+            arrayClientes[indiceCliente].id = idCliente;
+
+            printf("Ingrese el nombre del cliente: ");
+            fflush(stdin);
+            gets(arrayClientes[indiceCliente].nombre);
+
+            printf("Ingrese el sexo del cliente: ");
+            scanf("%c", &arrayClientes[indiceCliente].sexo);
+
+            arrayNotebooks[indice].ocupado = 1;
+            arrayClientes[indiceCliente].ocupado = 1;
+        }
     }
 }
 
@@ -356,7 +389,9 @@ int menu()
     printf("5. Elegir un tipo y una marca y contar cuantas notebooks hay de ese tipo y esa marca.\n");
     printf("6. Mostrar la o las marcas mas elegidas por los clientes.\n\n");
     printf("7. Pedir una notebook y mostrar todos los trabajos que se le hicieron a la misma.\n");
-
+    printf("8. Pedir un notebook e informar la suma de los importes de los services se le hicieron a la misma.\n");
+    printf("9. Pedir un servicio y mostrar las notebooks a las que se realizó ese servicio y la fecha.\n");
+    printf("J. Pedir una fecha y mostrar todos los servicios realizados en la misma.\n");
     printf("\n");
 
 
@@ -376,12 +411,12 @@ int menu()
  * \return
  *
  */
-void modificarNotebook(eNotebook arrayNotebooks[], int len, eMarca arrayMarcas[], int lenmar, eTipo arrayTipos[], int lentip)
+void modificarNotebook(eNotebook arrayNotebooks[], int len, eMarca arrayMarcas[], int lenmar, eTipo arrayTipos[], int lentip, eCliente arrayClientes[], int tamcli)
 {
     int i;
     int idnot;
 
-    listarNotebooks(arrayNotebooks, len, arrayMarcas, lenmar, arrayTipos, lentip);
+    listarNotebooks(arrayNotebooks, len, arrayMarcas, lenmar, arrayTipos, lentip, arrayClientes, tamcli);
     printf("\n\n Ingrese la ID de la notebook que desea modificar: ");
     scanf("%d", &idnot);
 
@@ -442,13 +477,13 @@ int submenu()
  * \return No devuelve nada.
  *
  */
-void bajaNotebook(eNotebook arrayNotebooks[], int len, eMarca arrayMarcas[], int lenmar, eTipo arrayTipos[], int lentip)
+void bajaNotebook(eNotebook arrayNotebooks[], int len, eMarca arrayMarcas[], int lenmar, eTipo arrayTipos[], int lentip, eCliente arrayClientes[], int tamcli)
 {
     int idNot;
     int i;
     char opcion;
 
-    listarNotebooks(arrayNotebooks, len, arrayMarcas, lenmar, arrayTipos, lentip);
+    listarNotebooks(arrayNotebooks, len, arrayMarcas, lenmar, arrayTipos, lentip, arrayClientes, tamcli);
 
     printf("\nIngrese el ID de la notebook a dar de baja: ");
     scanf("%d", &idNot);
@@ -484,7 +519,7 @@ void bajaNotebook(eNotebook arrayNotebooks[], int len, eMarca arrayMarcas[], int
  * \return No devuelve nada.
  *
  */
-void mostrarNotebooksPorTipoSeleccionado(eNotebook arrayNotebooks[], int len, eMarca arrayMarcas[], int lenmar, eTipo arrayTipos[], int lentip)
+void mostrarNotebooksPorTipoSeleccionado(eNotebook arrayNotebooks[], int len, eMarca arrayMarcas[], int lenmar, eTipo arrayTipos[], int lentip, eCliente arrayClientes[], int tamcli)
 {
     int indice = -1;
     int idTipo;
@@ -503,7 +538,7 @@ void mostrarNotebooksPorTipoSeleccionado(eNotebook arrayNotebooks[], int len, eM
             {
                 if(arrayTipos[j].id == idTipo && arrayNotebooks[i].idTipo == idTipo)
                 {
-                    listarNotebook(arrayNotebooks[i], arrayMarcas, lenmar, arrayTipos, lentip);
+                    listarNotebook(arrayNotebooks[i], arrayMarcas, lenmar, arrayTipos, lentip, arrayClientes, tamcli);
                     indice = 0;
                 }
             }
@@ -527,7 +562,7 @@ void mostrarNotebooksPorTipoSeleccionado(eNotebook arrayNotebooks[], int len, eM
  * \return No devuelve nada.
  *
  */
-void mostrarNotebooksPorMarcaSeleccionada(eNotebook arrayNotebooks[], int len, eMarca arrayMarcas[], int lenmar, eTipo arrayTipos[], int lentip)
+void mostrarNotebooksPorMarcaSeleccionada(eNotebook arrayNotebooks[], int len, eMarca arrayMarcas[], int lenmar, eTipo arrayTipos[], int lentip, eCliente arrayClientes[], int tamcli)
 {
     int indice = -1;
     int idMarca;
@@ -546,7 +581,7 @@ void mostrarNotebooksPorMarcaSeleccionada(eNotebook arrayNotebooks[], int len, e
             {
                 if(arrayMarcas[j].id == idMarca && arrayNotebooks[i].idMarca == idMarca)
                 {
-                    listarNotebook(arrayNotebooks[i], arrayMarcas, lenmar, arrayTipos, lentip);
+                    listarNotebook(arrayNotebooks[i], arrayMarcas, lenmar, arrayTipos, lentip, arrayClientes, tamcli);
                     indice = 0;
                 }
             }
@@ -569,7 +604,7 @@ void mostrarNotebooksPorMarcaSeleccionada(eNotebook arrayNotebooks[], int len, e
  * \return No devuelve nada.
  *
  */
-void informarLaOLasNotebooksMasBaratas(eNotebook arrayNotebooks[], int len, eMarca arrayMarcas[], int lenmar, eTipo arrayTipos[], int lentip)
+void informarLaOLasNotebooksMasBaratas(eNotebook arrayNotebooks[], int len, eMarca arrayMarcas[], int lenmar, eTipo arrayTipos[], int lentip, eCliente arrayClientes[], int tamcli)
 {
     int i, j;
     int minimoPosicionArray;
@@ -601,7 +636,7 @@ void informarLaOLasNotebooksMasBaratas(eNotebook arrayNotebooks[], int len, eMar
 
     if(flag == 1)
     {
-        listarNotebook(arrayNotebooks[minimoPosicionArray], arrayMarcas, lenmar, arrayTipos, lentip);
+        listarNotebook(arrayNotebooks[minimoPosicionArray], arrayMarcas, lenmar, arrayTipos, lentip, arrayClientes, tamcli);
     }
     else
     {
@@ -618,7 +653,7 @@ void informarLaOLasNotebooksMasBaratas(eNotebook arrayNotebooks[], int len, eMar
  * \return No devuelve nada.
  *
  */
-void separarPorMarca(eNotebook arrayNotebooks[], int len, eMarca arrayMarcas[], int lenmar, eTipo arrayTipos[], int lentip)
+void separarPorMarca(eNotebook arrayNotebooks[], int len, eMarca arrayMarcas[], int lenmar, eTipo arrayTipos[], int lentip, eCliente arrayClientes[], int tamcli)
 {
     int i;
 
@@ -629,7 +664,7 @@ void separarPorMarca(eNotebook arrayNotebooks[], int len, eMarca arrayMarcas[], 
         {
             if(arrayNotebooks[i].idMarca == 1000)
             {
-                listarNotebook(arrayNotebooks[i], arrayMarcas, lenmar, arrayTipos, lentip);
+                listarNotebook(arrayNotebooks[i], arrayMarcas, lenmar, arrayTipos, lentip, arrayClientes, tamcli);
             }
         }
     }
@@ -642,7 +677,7 @@ void separarPorMarca(eNotebook arrayNotebooks[], int len, eMarca arrayMarcas[], 
         {
             if(arrayNotebooks[i].idMarca == 1001)
             {
-                listarNotebook(arrayNotebooks[i], arrayMarcas, lenmar, arrayTipos, lentip);
+                listarNotebook(arrayNotebooks[i], arrayMarcas, lenmar, arrayTipos, lentip, arrayClientes, tamcli);
             }
         }
     }
@@ -655,7 +690,7 @@ void separarPorMarca(eNotebook arrayNotebooks[], int len, eMarca arrayMarcas[], 
         {
             if(arrayNotebooks[i].idMarca == 1002)
             {
-                listarNotebook(arrayNotebooks[i], arrayMarcas, lenmar, arrayTipos, lentip);
+                listarNotebook(arrayNotebooks[i], arrayMarcas, lenmar, arrayTipos, lentip, arrayClientes, tamcli);
             }
         }
     }
@@ -667,7 +702,7 @@ void separarPorMarca(eNotebook arrayNotebooks[], int len, eMarca arrayMarcas[], 
         {
             if(arrayNotebooks[i].idMarca == 1003)
             {
-                listarNotebook(arrayNotebooks[i], arrayMarcas, lenmar, arrayTipos, lentip);
+                listarNotebook(arrayNotebooks[i], arrayMarcas, lenmar, arrayTipos, lentip, arrayClientes, tamcli);
             }
         }
     }
@@ -682,7 +717,7 @@ void separarPorMarca(eNotebook arrayNotebooks[], int len, eMarca arrayMarcas[], 
  * \return No devuelve nada.
  *
  */
-void mostrarNotebooksPorTipoYMarca(eNotebook arrayNotebooks[], int len, eMarca arrayMarcas[], int lenmar, eTipo arrayTipos[], int lentip)
+void mostrarNotebooksPorTipoYMarca(eNotebook arrayNotebooks[], int len, eMarca arrayMarcas[], int lenmar, eTipo arrayTipos[], int lentip, eCliente arrayClientes[], int tamcli)
 {
     int idTipo;
     int idMarca;

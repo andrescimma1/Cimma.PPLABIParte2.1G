@@ -81,3 +81,54 @@
 1590194652 source:c:\users\user\desktop\cimmapplab1parte2\cimma.pplabiparte2.1g\trabajos.c
 	"trabajos.h"
 
+1594007816 source:c:\users\user\desktop\cimmapplab\cimma.pplabiparte2.1g\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"clientes.h"
+	"notebooks.h"
+	"marcas.h"
+	"tipos.h"
+	"servicios.h"
+	"trabajos.h"
+
+1593968157 c:\users\user\desktop\cimmapplab\cimma.pplabiparte2.1g\notebooks.h
+	"marcas.h"
+	"tipos.h"
+	"clientes.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1593963180 c:\users\user\desktop\cimmapplab\cimma.pplabiparte2.1g\marcas.h
+
+1593963180 c:\users\user\desktop\cimmapplab\cimma.pplabiparte2.1g\tipos.h
+
+1593963180 c:\users\user\desktop\cimmapplab\cimma.pplabiparte2.1g\servicios.h
+
+1594007227 c:\users\user\desktop\cimmapplab\cimma.pplabiparte2.1g\trabajos.h
+	"notebooks.h"
+	"servicios.h"
+
+1593963180 source:c:\users\user\desktop\cimmapplab\cimma.pplabiparte2.1g\marcas.c
+	"marcas.h"
+
+1594007849 source:c:\users\user\desktop\cimmapplab\cimma.pplabiparte2.1g\notebooks.c
+	"notebooks.h"
+
+1593963180 source:c:\users\user\desktop\cimmapplab\cimma.pplabiparte2.1g\servicios.c
+	"servicios.h"
+
+1593963180 source:c:\users\user\desktop\cimmapplab\cimma.pplabiparte2.1g\tipos.c
+	"tipos.h"
+
+1594007677 source:c:\users\user\desktop\cimmapplab\cimma.pplabiparte2.1g\trabajos.c
+	"trabajos.h"
+
+1593968283 c:\users\user\desktop\cimmapplab\cimma.pplabiparte2.1g\clientes.h
+	<stdio.h>
+	<stdlib.h>
+
+1593968447 source:c:\users\user\desktop\cimmapplab\cimma.pplabiparte2.1g\clientes.c
+	"clientes.h"
+

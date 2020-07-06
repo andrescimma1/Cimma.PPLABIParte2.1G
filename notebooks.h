@@ -3,16 +3,11 @@
 
 #include "marcas.h"
 #include "tipos.h"
+#include "clientes.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-typedef struct
-{
-    int id;
-    char nombre[20];
-    char sexo;
-}eCliente;
 
 typedef struct
 {
@@ -22,24 +17,25 @@ typedef struct
     int idTipo;
     int precio;
     int ocupado;
-    eCliente cliente;
+    int idCliente;
 }eNotebook;
 
 void inicializarNotebooks(eNotebook arrayNotebooks[], int tamnot);
 int buscarLibre(eNotebook arrayNotebooks[], int tamnot);
-void listarNotebook(eNotebook pNotebook, eMarca arrayMarcas[], int lenmar, eTipo arrayTipos[], int lentip);
+void listarNotebook(eNotebook pNotebook, eMarca arrayMarcas[], int lenmar, eTipo arrayTipos[], int lentip, eCliente arrayClientes[], int tamcli);
 void ordenarPorMarcaYprecio(eNotebook arrayNotebooks[], int len, eMarca arrayMarcas[], int lenmar, eTipo arrayTipos[], int lentip);
-int listarNotebooks(eNotebook arrayNotebooks[], int len, eMarca arrayMarcas[], int lenmar, eTipo arrayTipos[], int lentip);
-void altaNotebook(eNotebook arrayNotebooks[], int tamnot, eMarca arrayMarcas[], int tammar, eTipo arrayTipos[], int tamtip);
+int listarNotebooks(eNotebook arrayNotebooks[], int len, eMarca arrayMarcas[], int lenmar, eTipo arrayTipos[], int lentip, eCliente arrayClientes[], int tamcli);
+int generarId(eNotebook arrayNotebooks[], int tamnot);
+void altaNotebook(eNotebook arrayNotebooks[], int tamnot, eMarca arrayMarcas[], int tammar, eTipo arrayTipos[], int tamtip, eCliente arrayClientes[], int tamcli);
 int menu();
-void modificarNotebook(eNotebook arrayNotebooks[], int len, eMarca arrayMarcas[], int lenmar, eTipo arrayTipos[], int lentip);
+void modificarNotebook(eNotebook arrayNotebooks[], int len, eMarca arrayMarcas[], int lenmar, eTipo arrayTipos[], int lentip, eCliente arrayClientes[], int tamcli);
 int submenu();
-void bajaNotebook(eNotebook arrayNotebooks[], int len, eMarca arrayMarcas[], int lenmar, eTipo arrayTipos[], int lentip);
-void mostrarNotebooksPorTipoSeleccionado(eNotebook arrayNotebooks[], int len, eMarca arrayMarcas[], int lenmar, eTipo arrayTipos[], int lentip);
-void mostrarNotebooksPorMarcaSeleccionada(eNotebook arrayNotebooks[], int len, eMarca arrayMarcas[], int lenmar, eTipo arrayTipos[], int lentip);
-void informarLaOLasNotebooksMasBaratas(eNotebook arrayNotebooks[], int len, eMarca arrayMarcas[], int lenmar, eTipo arrayTipos[], int lentip);
-void separarPorMarca(eNotebook arrayNotebooks[], int len, eMarca arrayMarcas[], int lenmar, eTipo arrayTipos[], int lentip);
-void mostrarNotebooksPorTipoYMarca(eNotebook arrayNotebooks[], int len, eMarca arrayMarcas[], int lenmar, eTipo arrayTipos[], int lentip);
+void bajaNotebook(eNotebook arrayNotebooks[], int len, eMarca arrayMarcas[], int lenmar, eTipo arrayTipos[], int lentip, eCliente arrayClientes[], int tamcli);
+void mostrarNotebooksPorTipoSeleccionado(eNotebook arrayNotebooks[], int len, eMarca arrayMarcas[], int lenmar, eTipo arrayTipos[], int lentip, eCliente arrayClientes[], int tamcli);
+void mostrarNotebooksPorMarcaSeleccionada(eNotebook arrayNotebooks[], int len, eMarca arrayMarcas[], int lenmar, eTipo arrayTipos[], int lentip, eCliente arrayClientes[], int tamcli);
+void informarLaOLasNotebooksMasBaratas(eNotebook arrayNotebooks[], int len, eMarca arrayMarcas[], int lenmar, eTipo arrayTipos[], int lentip, eCliente arrayClientes[], int tamcli);
+void separarPorMarca(eNotebook arrayNotebooks[], int len, eMarca arrayMarcas[], int lenmar, eTipo arrayTipos[], int lentip, eCliente arrayClientes[], int tamcli);
+void mostrarNotebooksPorTipoYMarca(eNotebook arrayNotebooks[], int len, eMarca arrayMarcas[], int lenmar, eTipo arrayTipos[], int lentip, eCliente arrayClientes[], int tamcli);
 void mostrarLaOLasMarcasMasElegidas(eNotebook arrayNotebooks[], int len, eMarca arrayMarcas[], int lenmar);
 
 
